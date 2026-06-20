@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Happy Birthday Akansha 🎂</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- AMBIENT MUSIC -->
+  <audio id="bgMusic" loop>
+    <source src="music.mp3" type="audio/mpeg"/>
+  </audio>
+
+  <!-- VOICE NOTE AUDIO -->
+  <audio id="voiceAudio">
+    <source src="audio.mp3" type="audio/mpeg"/>
+  </audio>
+
+  <!-- FAKE NOTIFICATION -->
+  <div class="notif-popup" id="notifPopup">
+    <div class="notif-icon" id="notifIcon">💌</div>
+    <div class="notif-text">
+      <p class="notif-title" id="notifTitle">New Memory Unlocked</p>
+      <p class="notif-body" id="notifBody">Akshit.exe is thinking about Akansha again...</p>
+    </div>
+  </div>
+
+  <!-- BEFORE YOU ENTER -->
+  <div class="enter-screen" id="enterScreen">
+    <canvas id="particleCanvas"></canvas>
+    <div class="enter-content">
+      <p class="enter-sub">A message for Akansha.</p>
+      <p class="enter-sub2">Created by someone who loves you a little too much.</p>
+      <button class="enter-btn" onclick="enterSite()">Enter ❤️</button>
+    </div>
+  </div>
+
+  <!-- MAIN SITE -->
+  <div class="main-site hidden" id="mainSite">
+
+    <!-- FLOATING PETALS -->
+    <div class="petals-container" id="petalsContainer"></div>
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-content">
+        <p class="hero-tag">for you, always ✨</p>
+        <h1 class="hero-name" id="heroName"></h1>
+        <p class="hero-date">& happy birthday 🎂</p>
+        <p class="hero-note">
+          P.S. I'm still learning to code.<br/>
+          This little website is my attempt at telling you<br/>
+          something words alone couldn't.
+        </p>
+      </div>
+    </section>
+
+    <!-- LOVE LETTER -->
+    <section class="letter-section">
+      <div class="letter-container">
+        <p class="letter-label">a letter for you 💌</p>
+        <div class="letter-body">
+          <p>Happy Birthday babyy ❤️</p><br/>
+          <p>Honestly, I was just sitting and thinking about what to write here, but then I realized that if I start writing about you, I might never stop 😭</p><br/>
+          <p>Thank you for being such an important part of my life, bchaa. I love the way you laugh, the way you get excited while talking about something, and the way you somehow make even the most random conversations feel special.</p><br/>
+          <p>Also, I'll never forget that moment on Dhanno. That memory is permanently stored in my head. Every time I think about it, I still smile like an idiot, not gonna lie.</p><br/>
+          <p>One thing I don't tell you enough is how often I think about you during the day. Sometimes something funny happens and my first thought is, "I gotta tell my babygurll about this ASAP!!"</p><br/>
+          <p>You make me happier than you probably realize. You make normal days feel better, bad days feel lighter, and good days feel even more amazing.</p><br/>
+          <p>I know we joke around a lot, tease each other, and act silly half the time, but sach btau to, having you in my life is one of the best things that ever happened to me.</p><br/>
+          <p>Kabhi kabhi mujhe lagta hai ki you don't even realize how much you mean to me. You've become such a big part of my everyday life that now even the smallest things feel incomplete if I can't share them with you.</p><br/>
+          <p>And no matter how many birthdays come and go, I hope I still get to be the guy who makes you smile.</p><br/>
+          <p>Love you soo much 💗</p><br/>
+          <p class="letter-sign">Forever yours,<br/><span>Diary 📓</span></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- COUNTERS -->
+    <section class="counter-section" id="counterSection">
+      <div class="counter-container">
+        <p class="counter-label">how much of my life you've stolen 🥹</p>
+        <div class="counter-grid">
+          <div class="counter-item">
+            <span class="counter-number" id="daysTogether">0</span>
+            <span class="counter-desc">days you've been mine</span>
+          </div>
+          <div class="counter-item">
+            <span class="counter-number">404</span>
+            <span class="counter-desc">times I opened our chat for no reason — Error 404, count exceeded</span>
+          </div>
+          <div class="counter-item">
+            <span class="counter-number" id="thoughtCount">0</span>
+            <span class="counter-desc">days you've occupied my thoughts</span>
+          </div>
+          <div class="counter-item">
+            <span class="counter-number">∞</span>
+            <span class="counter-desc">times I missed you — still counting</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STARS -->
+    <section class="stars-section" id="starsSection">
+      <div class="stars-container">
+        <p class="stars-label">some things I think about at night ✨</p>
+        <p class="stars-sublabel">tap a star to find out</p>
+        <div class="stars-grid" id="starsGrid"></div>
+        <div class="star-message-box" id="starMessageBox">
+          <p id="starMessageText"></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ALTERNATE UNIVERSE -->
+    <section class="universe-section" id="universeSection">
+      <div class="universe-content">
+        <p class="universe-line" id="uLine1">Somewhere,</p>
+        <p class="universe-line" id="uLine2">there's a version of me that never met you.</p>
+        <p class="universe-line" id="uLine3">I don't think I'd like being him very much.</p>
+      </div>
+    </section>
+
+    <!-- CAKE -->
+    <section class="cake-section" id="cakeSection">
+      <div class="cake-container">
+        <p class="cake-label">make a wish 🎂</p>
+        <div class="cake-scene" id="cakeScene">
+
+          <div class="cake-shadow"></div>
+          <div class="cake-plate" id="cakePlate"></div>
+
+          <div class="crumbs crumbs-1" id="crumbsOne">
+            <span></span><span></span><span></span><span></span><span></span>
+          </div>
+          <div class="crumbs crumbs-2" id="crumbsTwo">
+            <span></span><span></span><span></span><span></span>
+          </div>
+          <div class="crumbs crumbs-3" id="crumbsThree">
+            <span></span><span></span><span></span>
+          </div>
+
+          <div class="cake-layer cake-layer-1">
+            <div class="cake-sponge cake-sponge-1"></div>
+            <div class="cake-cream cake-cream-1"><span></span></div>
+          </div>
+
+          <div class="cake-layer cake-layer-2">
+            <div class="cake-sponge cake-sponge-2"></div>
+            <div class="cake-cream cake-cream-2"><span></span></div>
+          </div>
+
+          <div class="cake-layer cake-layer-3">
+            <div class="cake-sponge cake-sponge-3"></div>
+          </div>
+
+          <div class="piping-bag" id="pipingBag">
+            <div class="bag-body"></div>
+            <div class="bag-fold"></div>
+            <div class="bag-nozzle"></div>
+          </div>
+
+          <div class="chocolate-stream" id="chocolateStream"></div>
+          <div class="chocolate-splash" id="chocolateSplash"></div>
+
+          <div class="cake-glaze" id="cakeGlaze">
+            <div class="glaze-shine"></div>
+            <div class="glaze-drip glaze-drip-1"></div>
+            <div class="glaze-drip glaze-drip-2"></div>
+            <div class="glaze-drip glaze-drip-3"></div>
+            <div class="glaze-drip glaze-drip-4"></div>
+            <div class="glaze-drip glaze-drip-5"></div>
+            <div class="glaze-drip glaze-drip-6"></div>
+          </div>
+
+          <div class="cake-cherries" id="cakeCherries">
+            <span class="cherry cherry-1"><i></i></span>
+            <span class="cherry cherry-2"><i></i></span>
+            <span class="cherry cherry-3"><i></i></span>
+          </div>
+
+          <div class="cake-sprinkles" id="cakeSprinkles">
+            <span class="sprinkle s1"></span>
+            <span class="sprinkle s2"></span>
+            <span class="sprinkle s3"></span>
+            <span class="sprinkle s4"></span>
+            <span class="sprinkle s5"></span>
+            <span class="sprinkle s6"></span>
+            <span class="sprinkle s7"></span>
+            <span class="sprinkle s8"></span>
+            <span class="sprinkle s9"></span>
+            <span class="sprinkle s10"></span>
+            <span class="sprinkle s11"></span>
+            <span class="sprinkle s12"></span>
+          </div>
+
+          <svg class="cake-hand" id="cakeHand" viewBox="0 0 190 104" aria-hidden="true">
+            <path class="hand-wrist" d="M151 60 C166 59 179 62 188 70 L184 88 C170 82 158 78 145 78 Z"></path>
+            <rect class="hand-band" x="145" y="58" width="7" height="25" rx="3"></rect>
+            <path class="hand-palm" d="M71 55 C88 42 116 43 146 57 C153 61 154 72 147 78 C132 89 101 90 76 78 C66 74 63 62 71 55 Z"></path>
+            <path class="hand-thumb" d="M84 72 C75 79 62 81 54 74 C48 69 51 61 59 60 C68 59 75 65 84 72 Z"></path>
+            <path class="hand-finger hand-finger-1" d="M75 49 C62 42 47 39 42 45 C38 50 43 56 53 57 C62 58 70 55 78 52 Z"></path>
+            <path class="hand-finger hand-finger-2" d="M90 43 C76 34 59 31 54 37 C50 43 57 49 69 50 C78 51 85 48 93 46 Z"></path>
+            <path class="hand-finger hand-finger-3" d="M108 43 C96 33 81 28 75 33 C70 38 76 45 88 48 C96 50 103 48 111 46 Z"></path>
+            <path class="hand-finger hand-finger-4" d="M126 47 C119 37 107 31 100 34 C94 37 97 45 107 51 C114 55 121 55 128 53 Z"></path>
+          </svg>
+
+          <div class="cake-smoke" id="cakeSmoke">
+            <span></span><span></span><span></span>
+          </div>
+
+          <div class="cake-candle" id="cakeCandle" role="button" tabindex="0" aria-label="Tap the candle">
+            <div class="candle-flame" id="candleFlame">
+              <div class="flame-outer"></div>
+              <div class="flame-inner"></div>
+              <div class="flame-glow"></div>
+            </div>
+            <div class="candle-body"></div>
+          </div>
+
+        </div>
+
+        <p class="cake-tap-hint" id="cakeTapHint">tap the candle to make a wish ✨</p>
+        <div class="cake-wish" id="cakeWish">
+          <p class="wish-text" id="wishText"></p>
+          <div class="wish-hearts" id="wishHearts" aria-hidden="true">
+            <span class="wish-heart wh1">🤍</span>
+            <span class="wish-heart wh2">💗</span>
+            <span class="wish-heart wh3">🤍</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- MEMORY VAULT -->
+    <section class="vault-section" id="vaultSection">
+      <div class="vault-container">
+        <p class="vault-label">memory vault 🔐</p>
+        <p class="vault-sublabel">only one person knows the password</p>
+        <div class="vault-input-wrap">
+          <input type="password" id="vaultInput" class="vault-input"
+            placeholder="enter the password..."
+            onkeydown="if(event.key==='Enter') checkVaultPassword()"/>
+          <button class="vault-btn" onclick="checkVaultPassword()">unlock</button>
+        </div>
+        <p class="vault-hint" id="vaultHint"></p>
+        <p class="vault-feedback" id="vaultFeedback"></p>
+        <div class="vault-granted" id="vaultGranted">
+          <p class="granted-line1">Access Granted ❤️</p>
+          <p class="granted-line2">Welcome back to one of my favorite memories.</p>
+        </div>
+        <div class="vault-content" id="vaultContent">
+          <p class="vault-memory">
+            Dhanno wasn't just a scooty.<br/><br/>
+            She was our little world on two wheels.<br/><br/>
+            I remember every turn, every laugh, every moment we shared on her.<br/><br/>
+            That memory lives in a corner of my heart that nobody else gets to touch.<br/><br/>
+            Just us. Just Dhanno. Just that day. 🛵❤️
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- THINGS I'LL NEVER ADMIT -->
+    <section class="admit-section" id="admitSection">
+      <div class="admit-container">
+        <p class="admit-label">things I'll never admit 🤫</p>
+        <p class="admit-sublabel">pull the drawer open</p>
+        <div class="admit-drawer" id="admitDrawer" onclick="toggleDrawer()">
+          <div class="drawer-handle">▼ open</div>
+          <div class="drawer-content" id="drawerContent">
+            <ul class="admit-list">
+              <li>I check your messages faster than I reply to everyone else's.</li>
+              <li>Sometimes I stare at your photos longer than necessary 😶</li>
+              <li>I smile at my phone like an idiot because of you.</li>
+              <li>I've re-read our old conversations more times than I'll ever tell you.</li>
+              <li>Whenever something funny happens, you're the first person I want to tell.</li>
+              <li>I think about what you're doing even when we're not talking.</li>
+              <li>You make me nervous in the best way possible. Still. Every time.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- OPEN WHEN LETTERS -->
+    <section class="openwhen-section" id="openWhenSection">
+      <div class="openwhen-container">
+        <p class="openwhen-label">open when... 💌</p>
+        <p class="openwhen-sublabel">for every mood, every moment</p>
+        <div class="openwhen-grid" id="openWhenGrid"></div>
+        <div class="openwhen-letter" id="openWhenLetter">
+          <p class="letter-for" id="letterFor"></p>
+          <p class="letter-text" id="letterText"></p>
+          <button class="close-letter-btn" onclick="closeLetter()">close ✕</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- MESSAGE FROM FUTURE AKSHIT -->
+    <section class="future-section" id="futureSection">
+      <div class="future-container">
+        <p class="future-label">a message from the future 🕰️</p>
+        <div class="future-envelope" id="futureEnvelope" onclick="openFutureMessage()">
+          <p class="envelope-text">Open only if you're ready.</p>
+          <p class="envelope-sub">tap to unseal ✉️</p>
+        </div>
+        <div class="future-message" id="futureMessage">
+          <p>Hey Akansha,</p><br/>
+          <p>If you're reading this, it's your birthday.</p><br/>
+          <p>Future me still gets that same feeling whenever you smile.</p><br/>
+          <p>Still thinks about you at random hours.</p><br/>
+          <p>Still reaches for the phone to tell you things first.</p><br/>
+          <p>Nothing much changes, honestly.</p><br/>
+          <p>Except maybe I've gotten a little better at saying out loud what I've always felt.</p><br/>
+          <p>Happy Birthday, babyy. 💗</p><br/>
+          <p style="color:#666; font-size:0.85rem;">— Akshit, from whenever this finds you</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- VOICE NOTE SECTION -->
+    <section class="voice-section" id="voiceSection">
+      <div class="voice-container">
+        <p class="voice-intro" id="voiceIntro">before you go...</p>
+        <div class="voice-orb-wrap" id="voiceOrbWrap">
+          <div class="orb-ring orb-ring-3" id="orbRing3"></div>
+          <div class="orb-ring orb-ring-2" id="orbRing2"></div>
+          <div class="orb-ring orb-ring-1" id="orbRing1"></div>
+          <div class="voice-orb" id="voiceOrb" onclick="handleOrbTap()">
+            <div class="orb-core"></div>
+          </div>
+        </div>
+        <p class="voice-hint" id="voiceHint">he recorded something just for you</p>
+        <p class="voice-tap-hint" id="voiceTapHint">tap the orb 🎙️</p>
+        <div class="voice-waveform" id="voiceWaveform">
+          <div class="wave-ring wave-ring-1"></div>
+          <div class="wave-ring wave-ring-2"></div>
+          <div class="wave-ring wave-ring-3"></div>
+          <div class="wave-ring wave-ring-4"></div>
+        </div>
+        <div class="voice-ending" id="voiceEnding">
+          <p class="ending-line1" id="endingLine1">happy birthday, babyy.</p>
+          <div class="ending-divider" id="endingDivider"></div>
+          <p class="ending-line2" id="endingLine2">thank you for letting me be part of your story.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- THE LAST PAGE -->
+    <section class="last-section" id="lastSection">
+      <div class="last-content">
+        <p class="last-line1" id="lastLine1">Out of all the days we've shared,</p>
+        <p class="last-line2" id="lastLine2">today is my favorite.</p>
+        <p class="last-line3" id="lastLine3">Because it's the day my favorite person was born.</p>
+        <div class="last-divider" id="lastDivider"></div>
+        <p class="last-name" id="lastNameEl"></p>
+        <p class="last-credit" id="lastCredit">Made with love by Akshit 🤍</p>
+      </div>
+    </section>
+
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
